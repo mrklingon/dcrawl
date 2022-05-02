@@ -1,4 +1,7 @@
 function showRoom (image: Image) {
+    x = 2
+    y = 2
+    basic.pause(100)
     basic.showLeds(`
         . . . . .
         . . . . .
@@ -7,8 +10,6 @@ function showRoom (image: Image) {
         . . . . .
         `)
     image.showImage(0)
-    x = 2
-    y = 2
 }
 input.onGesture(Gesture.LogoUp, function () {
     if (255 != led.pointBrightness(x, y + 1)) {
