@@ -1,5 +1,11 @@
 function showRoom (image: Image) {
-    led.unplot(x, y)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
     image.showImage(0)
     x = 2
     y = 2
