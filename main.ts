@@ -2,6 +2,7 @@ function showRoom (image: Image) {
     x = 2
     y = 2
     basic.pause(100)
+    music.playSoundEffect(music.createSoundEffect(WaveShape.Sine, 200, 600, 255, 0, 150, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
     basic.showLeds(`
         . . . . .
         . . . . .
@@ -10,6 +11,9 @@ function showRoom (image: Image) {
         . . . . .
         `)
     image.showImage(0)
+    if (randint(0, 10) < 4) {
+        placeGold()
+    }
 }
 input.onGesture(Gesture.LogoUp, function () {
     if (255 != led.pointBrightness(x, y + 1)) {
@@ -20,6 +24,10 @@ input.onGesture(Gesture.LogoUp, function () {
         showRoom(Rooms[randint(0, Rooms.length - 1)])
     }
 })
+function placeGold () {
+    led.plotBrightness(1, 1, 70)
+    led.plotBrightness(3, 3, 70)
+}
 input.onGesture(Gesture.TiltLeft, function () {
     if (255 != led.pointBrightness(x - 1, y)) {
         led.unplot(x, y)
