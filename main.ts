@@ -29,8 +29,15 @@ input.onGesture(Gesture.LogoUp, function () {
     }
 })
 function placeGold () {
-    led.plotBrightness(1, 1, 70)
-    led.plotBrightness(3, 3, 70)
+    if (5 < randint(0, 10)) {
+        led.plotBrightness(1, 3, 70)
+    }
+    if (5 < randint(0, 10)) {
+        led.plotBrightness(1, 1, 70)
+    }
+    if (5 < randint(0, 10)) {
+        led.plotBrightness(3, 3, 70)
+    }
 }
 input.onGesture(Gesture.TiltLeft, function () {
     if (255 != led.pointBrightness(x - 1, y)) {
@@ -42,7 +49,15 @@ input.onGesture(Gesture.TiltLeft, function () {
     }
 })
 function placeMonster () {
-    led.plotBrightness(1, 3, 90)
+    if (5 < randint(0, 10)) {
+        led.plotBrightness(1, 3, 185)
+    }
+    if (5 < randint(0, 10)) {
+        led.plotBrightness(1, 1, 185)
+    }
+    if (5 < randint(0, 10)) {
+        led.plotBrightness(3, 3, 185)
+    }
 }
 input.onGesture(Gesture.TiltRight, function () {
     if (255 != led.pointBrightness(x + 1, y)) {
@@ -148,7 +163,7 @@ basic.forever(function () {
         game.addScore(randint(20, 50))
         showRoom(svroom)
     }
-    if (90 == led.pointBrightness(x, y)) {
+    if (185 == led.pointBrightness(x, y)) {
         music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 1600, 1, 255, 0, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
         game.removeLife(1)
         showRoom(svroom)
